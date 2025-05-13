@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aaryan Jha | Backend Architect</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2dd4bf;
+        --secondary: #0d9488;
+        --dark: #0f172a;
+        --light: #f8fafc;
+        --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      }
+      .scroll-right-hint {
+        text-align: center;
+        font-size: 0.875rem;
+        color: var(--light);
+        opacity: 0.7;
+        font-style: italic;
+        margin-top: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--dark);
+        color: var(--light);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      header {
+        padding: 6rem 2rem 4rem;
+        text-align: center;
+        background: var(--gradient);
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        animation: fadeIn 1s ease-out;
+      }
+
+      h1 {
+        font-family: "Inter", sans-serif;
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      section {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+
+      section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 1rem;
+        margin: 2rem 2rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      pre {
+        background: rgba(96, 49, 49, 0.3);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+      }
+
+      footer {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: rgba(0, 0, 0, 0.3);
+        margin-top: 4rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        color: var(--light);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        color: var(--dark);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .json-copy-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0.5rem;
+      }
+
+      .copy-btn {
+        background: var(--primary);
+        color: var(--dark);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.875rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        z-index: 1;
+      }
+
+      .copy-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      .copy-msg {
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: #10b981;
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.375rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(5px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .copy-msg.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Aaryan Jha</h1>
+      <p class="tagline">
+        Experienced in developing scalable web applications using ASP.NET Web
+        API, ASP.NET MVC, and EF Core, with strong skills in PostgreSQL, MS SQL
+        Server, LINQ, and backend performance optimization.
+      </p>
+    </header>
+
+    <section id="resume" class="card">
+      <p class="scroll-right-hint">&lt;&lt; SCROLL LEFT & RIGHT &gt;&gt;</p>
+
+      <div class="json-copy-wrapper">
+        <button id="copyJsonBtn" class="copy-btn">📋 Copy JSON</button>
+        <div id="copyMsg" class="copy-msg">Copied to clipboard!</div>
+      </div>
+      <pre id="resumeViewer"></pre>
+    </section>
+
+    <footer>
+      <p>Connect with me across platforms</p>
+      <div class="social-links">
+        <a href="https://github.com/ScreamingSyntax" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/aaryanjha/" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="mailto:your@email.com">Email</a>
+      </div>
+    </footer>
+
+    <script>
+      // Animate section visibility on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section);
+      });
+      document.getElementById("copyJsonBtn").addEventListener("click", () => {
+        const text = document.getElementById("resumeViewer").textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const msg = document.getElementById("copyMsg");
+          msg.classList.add("show");
+
+          setTimeout(() => {
+            msg.classList.remove("show");
+          }, 2000);
+        });
+      });
+
+      // Display resume JSON
+      const professionalProfile = {
+        technicalExpertise: [
+          "ASP.NET Web API",
+          "ASP.NET MVC",
+          "Entity Framework (EF) Core",
+          "Flutter",
+        ],
+        careerTimeline: [
+          {
+            company: "Vertex Special Technologies",
+            timeline: "2024 - Present",
+            roles: [
+              {
+                role: ".NET Developer",
+                description: [
+                  "Integrated an IoT-based employee punch-in/out system with a .NET Core backend for real-time attendance tracking",
+                  "Integrated a payment system into accounting software",
+                  "Conducted knowledge transfer sessions among US, Nepal and Pakistan team",
+                  "Worked on multi-tenant architecture",
+                  "Implemented Clean Architecture",
+                  "Deployed .NET Core projects to IIS",
+                ],
+              },
+            ],
+          },
+          {
+            company: "ING Skill Academy",
+            timeline: "2023",
+            roles: [
+              {
+                role: "Full Stack",
+                description: [
+                  "Collaborated with team to develop multiple college webapps",
+                  "Created initial website designs using Figma",
+                  "Converted Figma designs into functional websites through code",
+                  "Designed and implemented databases for the webapps",
+                ],
+              },
+              {
+                role: "IOT",
+                description: [
+                  "Developed various IoT projects",
+                  "Collaborated with a team to complete seven projects within fourteen days",
+                  "Demonstrated IoT projects in 12 different locations across Nepal as part of the Futurama Event",
+                  "Led the “Remote Control Smart Dustbin” project at the Futurama Event",
+                ],
+              },
+            ],
+          },
+        ],
+        education: {
+          degree: "BSc in Computer Science",
+          institution: "Itahari International College",
+        },
+        awards: [
+          {
+            title: "Triple A Scholarship (2023)",
+            description:
+              "A Scholarship honors the top 10% of students in each faculty, recognizing their achievements in four key areas: Attendance, Discipline, Financial Responsibility, and Academic Performance.",
+            issuer: "Itahari International College",
+          },
+          {
+            title: "Third in the 30-second pitch challenge (2024)",
+            issuer: "Thammasat University, Thailand",
+          },
+        ],
+      };
+
+      document.getElementById("resumeViewer").textContent = JSON.stringify(
+        professionalProfile,
+        null,
+        2
+      );
+    </script>
+  </body>
+</html>
