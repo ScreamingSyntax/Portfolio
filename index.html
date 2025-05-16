@@ -606,6 +606,52 @@
           height: 40px;
         }
       }
+      body.light-theme {
+  --primary: #0ea5e9;
+  --secondary: #0284c7;
+  --dark: #f8fafc;
+  --light: #0f172a;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  background: var(--dark);
+  color: var(--light);
+}
+
+body.light-theme .social-links a {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--light);
+}
+
+body.light-theme .social-links a:hover {
+  background: var(--primary);
+  color: var(--dark);
+}
+
+body.light-theme .form-input,
+body.light-theme .form-textarea {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--light);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme pre {
+  background: rgba(248, 250, 252, 0.7);
+  color: #0f172a;
+}
+
+body.light-theme .timeline:before {
+  background: var(--primary);
+}
+
+body.light-theme .project-link {
+  color: var(--dark);
+}
+
+body.light-theme .project-link:hover {
+  background: var(--primary);
+  color: var(--light);
+}
+
     </style>
   </head>
   <body>
@@ -761,9 +807,11 @@
           <a href="mailto:whcloud91@email.com">
             <i class="fas fa-envelope social-icon"></i> Email
           </a>
-          <a href="#" target="_blank">
+          <a href="files/resume.pdf" download>
             <i class="fas fa-file-alt social-icon"></i> Resume
           </a>
+          
+          
         </div>
         <p class="copyright">
           &copy; 2024 Aaryan Jha. All rights reserved.
